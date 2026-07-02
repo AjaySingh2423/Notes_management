@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <style>
+      @media (min-width: 769px) {
+  .note {
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;   /* one line */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;             /* spacing between items */
+    padding: 10px;
+    margin: 10px auto;
+    width: 70%;            /* center container */
+  }
+
+  .note h2,
+  .note small,
+  #nav1 {
+    margin: 0;
+  }
+
+  #nav1 {
+    display: flex;
+    gap: 10px;
+  }
+
+  .a2 {
+    text-decoration: none;
+    color: red;
+  }
+
+  .a2:hover {
+    color: green;
+  }
+}
+   
+@media (max-width: 600px) {
+  .note {
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;   /* ✅ center horizontally */
+
+    text-align: center;    /* ✅ center text */
+
+    padding: 15px;
+    margin: 12px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .note h2 {
+  margin-top: 0;   /* ✅ remove extra top space */
+  margin-bottom: 5px;
+}
+
+  #nav1 {
+    display: flex;
+    justify-content: center; /* ✅ center buttons */
+    gap: 15px;
+  }
+
+  .a2 {
+    text-decoration: none;
+    color: red;
+    font-size: 14px;
+  }
+
+  .a2:hover { 
+    color: green;
+  }
+}
+
+/* 🔹 Container */
+.search-box {
+  display: flex;
+  justify-content: center;   /* center horizontally */
+  align-items: center;
+  gap: 10px;
+
+  margin: 20px auto;
+  width: 100%;
+}
+
+/* 🔹 Input Field */
+#input1 {
+  padding: 10px 15px;
+  width: 240px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  outline: none;
+  font-size: 14px;
+
+  transition: 0.3s;
+}
+
+#input1:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0,123,255,0.5);
+}
+
+/* 🔹 Button */
+#btn1 {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 20px;
+  background-color: #007bff;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+#btn1:hover {
+  background-color: #0056b3;
+}
+
+#p2{
+ text-align: center;
+}
+
+                                  
+    </style>
+</head>
+<body>
+ <div id="top-bar">
+     <p id="p1"><%= user.name %></p>
+    <nav>
+      <a href="/home" class="a1">Home</a>
+      <a href="/note" class="a1">Make note</a>
+      <a href="/logout" class="a1">Logout</a>
+    </nav>
+
+    <div id="menu-btn">
+  <i class="fa-solid fa-bars" id="menu-icon"></i>
+  </div>
+</div>
+
+<div id="middle">
+<div class="search-box">
+  <input type="text" id="input1" placeholder="Search">
+</div>
+<% if (notes.length === 0) { %>
+    <p id="p2">No notes yet</p>
+<% } %>
+
+<% notes.forEach(note => { %>
+    <div class="note">
+        <h2 class="note-title">Title: <%= note.title %></h2>
+        <small>
+            Created at: 
+            <%= new Date(note.createdAt).toLocaleString("en-IN") %>
+        </small><br>
+        <div id="nav1"><a href="/delete/<%= note._id %>" class="a2"  onclick="return confirm('Are you sure you want to delete this note?')">Delete</a> <a  href="/edit/<%= note._id %>" class="a2">Edit</a>
+          <a  href="/view/<%= note._id %>" class="a2">View</a>
+        </div>
+    </div>
+<% }) %>
+<div id="b1">
+
+</div>
+</div>
+
+<div id="bottom">
+       <div id="info5">
+        <h3>You can visit my social media by clicking the links below</h3>
+       </div>
+       <div class="socials">
+  <a href="https://www.facebook.com/share/1AmU9NSbuu/" class="facebook" target="_blank">
+    <i class="fa-brands fa-facebook-f"></i>
+  </a>
+
+  <a href="https://www.instagram.com/ajaysingh17242002?igsh=NDdzd3Axd3VnZjY5" class="instagram" target="_blank">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+  <a href="https://x.com/AjaySingh151152" class="twitter" target="_blank">
+    <i class="fa-brands fa-x-twitter"></i>
+  </a>
+
+  <a href="https://www.linkedin.com/in/ajay-singh-408b1326a?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="linkedin" target="_blank">
+    <i class="fa-brands fa-linkedin-in"></i>
+  </a>
+</div>
+
+<div id="info6">
+  <p id="pb">© 2026 Ajay Singh. All rights reserved.</p>
+</div>
+  </div>
+<script src="/js/layout.js"></script>
+<script>
+document.getElementById("input1").addEventListener("input", function () {
+    const searchValue = this.value.toLowerCase();
+    const notes = document.querySelectorAll(".note");
+
+    notes.forEach(note => {
+        const title = note.querySelector(".note-title").innerText.toLowerCase();
+
+        if (title.includes(searchValue)) {
+            note.style.display = "flex";
+        } else {
+            note.style.display = "none";
+        }
+    });
+});
+</script>
+</body>
+</html>

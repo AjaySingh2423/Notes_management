@@ -1,0 +1,461 @@
+# Notes Management Application
+
+A secure and user-friendly Notes Management web application built using **Node.js**, **Express.js**, **MongoDB**, **EJS**, and **JWT Authentication**. The application allows users to register, log in, and manage their personal notes with rich text formatting using the **Quill Rich Text Editor**.
+
+---
+
+# Table of Contents
+
+- Introduction
+- Features
+- Technology Stack
+- Project Structure
+- Screenshots
+- Installation
+- Environment Variables
+- Running the Project
+- Application Workflow
+- Authentication
+- Database Schema
+- Key Highlights
+- What I Learned
+- Future Improvements
+- Author
+
+---
+
+# Introduction
+
+The Notes Management Application is a full-stack web application developed to help users organize and manage their personal notes securely.
+
+Each registered user has a private account where they can create, edit, delete, search, and view notes. The application uses JWT authentication to protect user sessions and ensures that users can only access their own notes.
+
+Rich text editing is implemented using the Quill Editor, allowing users to format notes with different styles such as headings, bold, italic, underline, lists, colors, and text alignment.
+
+The project follows the MVC (Model-View-Controller) architecture, making the code modular, maintainable, and easy to understand.
+
+---
+
+# Features
+
+## User Authentication
+
+- User Registration
+- Secure Login
+- JWT Authentication
+- Password Hashing using bcrypt
+- Logout Functionality
+- Protected Routes
+- User-specific Access Control
+
+---
+
+## Notes Management
+
+- Create Notes
+- Edit Existing Notes
+- Delete Notes
+- View Complete Notes
+- Search Notes by Title
+- Rich Text Notes
+- Store Notes in MongoDB
+
+---
+
+## Rich Text Editor (Quill)
+
+Supports formatting such as:
+
+- Bold
+- Italic
+- Underline
+- Strike
+- Headings
+- Ordered Lists
+- Bullet Lists
+- Text Alignment
+- Text Color
+- Background Color
+- Font Styles
+- Rich HTML Content
+
+---
+
+## Security
+
+- JWT Authentication
+- Password Encryption using bcrypt
+- Protected Routes
+- User-specific Data Access
+- Secure Session Management
+
+---
+
+# Technology Stack
+
+## Frontend
+
+- HTML
+- CSS
+- JavaScript
+- EJS Templates
+- Quill Rich Text Editor
+
+## Backend
+
+- Node.js
+- Express.js
+
+## Database
+
+- MongoDB
+- Mongoose
+
+## Authentication
+
+- JSON Web Token (JWT)
+- bcrypt
+
+---
+
+# Project Structure
+
+```
+Notes_application/
+│
+├── controllers/
+├── middleware/
+├── models/
+├── node_modules/
+├── public/
+├── routes/
+├── services/
+├── views/
+│
+├── connection.js
+├── index.js
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
+---
+
+# Screenshots
+
+## Home Page
+
+Features:
+
+- Display all user notes
+- Search functionality
+- Edit notes
+- Delete notes
+- View complete notes
+
+(Add Home Page Screenshot)
+
+---
+
+## Create Note Page
+
+Features:
+
+- Quill Rich Text Editor
+- Note Title
+- Rich Text Formatting
+- Save Notes
+
+(Add Create Note Screenshot)
+
+---
+
+## Login Page
+
+(Add Login Screenshot)
+
+---
+
+## Registration Page
+
+(Add Registration Screenshot)
+
+---
+
+# Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/yourusername/Notes_application.git
+```
+
+Move into the project directory
+
+```bash
+cd Notes_application
+```
+
+Install all dependencies
+
+```bash
+npm install
+```
+
+---
+
+# Environment Variables
+
+Create a `.env` file in the project root.
+
+Example:
+
+```env
+PORT=8000
+
+MONGO_URL=your_mongodb_connection_string
+
+JWT_SECRET=your_secret_key
+```
+
+---
+
+# Running the Project
+
+Start the application
+
+```bash
+npm start
+```
+
+or
+
+```bash
+node index.js
+```
+
+Open your browser
+
+```
+http://localhost:8000
+```
+
+---
+
+# Application Workflow
+
+### Step 1
+
+Register a new account.
+
+↓
+
+### Step 2
+
+Login using your registered email and password.
+
+↓
+
+### Step 3
+
+After successful login, a JWT token is generated.
+
+↓
+
+### Step 4
+
+Protected routes verify the JWT token before allowing access.
+
+↓
+
+### Step 5
+
+Create rich-text notes using the Quill Editor.
+
+↓
+
+### Step 6
+
+Notes are stored securely in MongoDB.
+
+↓
+
+### Step 7
+
+Users can
+
+- Search notes
+- Edit notes
+- Delete notes
+- View complete notes
+
+↓
+
+### Step 8
+
+Logout securely.
+
+---
+
+# Authentication
+
+The application uses JWT (JSON Web Token) for authentication.
+
+Authentication flow:
+
+1. User registers an account.
+2. Password is hashed using bcrypt before storage.
+3. User logs in with email and password.
+4. JWT token is generated upon successful authentication.
+5. Protected routes verify the JWT token.
+6. Users can only access their own notes.
+7. User logs out securely.
+
+---
+
+# Database Schema
+
+The application uses MongoDB with two collections.
+
+---
+
+## Users Collection
+
+| Field | Type | Description |
+|------|------|-------------|
+| _id | ObjectId | Unique user ID |
+| name | String | User's full name |
+| email | String | User email used for login |
+| password | String | bcrypt hashed password |
+
+---
+
+## Notes Collection
+
+| Field | Type | Description |
+|------|------|-------------|
+| _id | ObjectId | Unique note ID |
+| title | String | Note title |
+| content | String | Rich HTML content generated by Quill |
+| userId | ObjectId | Reference to the owner of the note |
+| createdAt | Date | Note creation timestamp |
+| updatedAt | Date | Last updated timestamp |
+
+---
+
+### Relationship
+
+```
+Users
+------
+
+_id
+name
+email
+password
+
+      │
+      │ One User
+      │
+      ▼
+
+Notes
+------
+
+_id
+title
+content
+userId
+createdAt
+updatedAt
+```
+
+Each user can create multiple notes, while every note belongs to only one user. The `userId` field establishes this relationship and ensures that users can only access and manage their own notes.
+
+---
+
+# Key Highlights
+
+- Multi-user Notes Management System
+- User Registration and Login
+- JWT Authentication
+- Password Hashing with bcrypt
+- Rich Text Editor using Quill.js
+- Create, Read, Update, Delete (CRUD) Operations
+- Search Notes by Title
+- User-specific Notes
+- MongoDB Database
+- MVC Architecture
+- Responsive and Clean User Interface
+
+---
+
+# What I Learned
+
+During the development of this project, I gained practical experience in:
+
+- Building a full-stack Node.js application
+- MVC Architecture
+- Express Routing
+- MongoDB and Mongoose
+- JWT Authentication
+- Password Hashing using bcrypt
+- User Authorization
+- CRUD Operations
+- Rich Text Editor Integration using Quill.js
+- Session Management
+- Dynamic Rendering using EJS
+
+---
+
+# Future Improvements
+
+- Responsive Mobile Design
+- Dark Mode
+- Categories
+- Tags
+- Archive Notes
+- Pin Important Notes
+- Trash Bin
+- Image Upload Support
+- File Attachments
+- Markdown Support
+- Note Sharing Between Users
+- Email Verification
+- Forgot Password Functionality
+- Profile Management
+
+---
+
+# Author
+
+Ajay Singh
+
+Master of Computer Applications (MCA)
+
+Skills
+
+- Node.js
+- Express.js
+- MongoDB
+- JavaScript
+- HTML
+- CSS
+- EJS
+
+GitHub
+
+```
+https://github.com/AjaySingh2423
+
+```
+
+---
+
+# License
+
+This project is developed for learning, practice, and portfolio purposes.
+
+---
+
+If you found this project helpful, consider giving it a star on GitHub.

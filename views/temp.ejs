@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+    body{
+      margin:0;
+  min-height:100vh;   /* ⭐ KEY FIX */
+  display:flex;
+  flex-direction:column;
+    }
+    #top-bar{
+         margin-top:0px;
+         padding-top:0px;
+         width:100%;
+         height:49px;
+         background-color: #1f2937;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+
+         
+         
+    }
+      nav {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    
+  }
+
+   #p1 {
+    margin-left: 10px;
+    color:#ffffff;
+    font-size: x-large;
+    font-weight: bold;
+  }
+nav a {
+  padding: 8px;
+  text-decoration: none;
+  color:white;
+}
+
+ nav a:hover{
+  color:red;
+}
+
+
+
+@media (max-width:768px){
+
+  /* show hamburger */
+  #menu-btn{
+    display:block;
+  }
+
+  /* hide nav initially */
+  nav{
+    position:absolute;
+    top:49px;
+    right:0px;
+    width:50%;
+    background:#1f2937;
+    flex-direction:column;
+    align-items:center;
+    display:none;
+  }
+
+  nav a{
+    width:100%;
+    text-align:center;
+    padding:12px 0;
+    border-top:1px solid #374151;
+  }
+
+  /* toggle class */
+  nav.show{
+    display:flex;
+  }
+
+  #info5 h3{
+  margin:0;
+}
+
+}
+#middle{
+  flex:1;
+}
+
+
+                                                    /* Bottom bar */
+/* Bottom bar */
+#bottom{
+  background-color:#111827;
+  margin-bottom: 0;
+  padding-top: 10px;
+  width:100%;
+ 
+}
+
+.socials a {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #1f2933;
+  color: #9ca3af;
+  font-size: 18px;
+  margin: 0 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.socials a:hover {
+  transform: translateY(-5px) scale(1.1);
+  text-decoration: none;
+}
+
+/* Brand hover colors */
+.facebook:hover { background: #1877f2; color: #fff; }
+.instagram:hover { background: #e1306c; color: #fff; }
+.twitter:hover { background: #000; color: #fff; }
+.linkedin:hover { background: #0a66c2; color: #fff; }
+
+#info5{
+  width:100%; 
+  margin-top: 0%;                       
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;   
+}
+#info6{
+  width:100%;
+  height:48px;
+ 
+
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+h3{
+  margin-top:0px;
+  color:whitesmoke;
+}
+.socials{
+  width:100%;
+  height:60px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+#pb{
+  color: white;
+  margin-bottom:10px;
+}
+
+/* hide hamburger desktop */
+#menu-btn{
+ display:none;
+  color:white;
+  font-size:22px;
+  cursor:pointer;
+  position:absolute;
+  right:12px;
+  top:12px;
+}
+
+#top-bar{
+  position:relative;
+}
+
+@media (max-width:768px){
+
+  /* show hamburger */
+  #menu-btn{
+    display:block;
+  }
+
+  /* hide nav initially */
+  nav{
+    position:absolute;
+    top:49px;
+    right:0px;
+    width:100%;
+    background:#1f2937;
+    flex-direction:column;
+    align-items:center;
+    display:none;
+  }
+
+  nav a{
+    width:100%;
+    text-align:center;
+    padding:12px 0;
+    border-top:1px solid #374151;
+  }
+
+  /* toggle class */
+  nav.show{
+    display:flex;
+  }
+
+}
+
+                                          /* middle part */
+#middle{
+  background-color: lightgray;
+}                                          
+
+
+
+
+
+                                  
+</style>
+</head>
+<body>
+ <div id="top-bar">
+     <p id="p1">Ajay Singh</p>
+    <nav>
+      <a href="index.html" class="a1">Home</a>
+      <a href="Projects.html" class="a1">Projects</a>
+      <a href="Education.html" class="a1">Education</a>
+      <a href="Contact.html" class="a1">Contact me</a>
+    </nav>
+
+    <div id="menu-btn">
+  <i class="fa-solid fa-bars" id="menu-icon"></i>
+  </div>
+</div>
+
+<div id="middle">
+
+</div>
+
+<div id="bottom">
+       <div id="info5">
+        <h3>You can visit my social media by clicking the links below</h3>
+       </div>
+       <div class="socials">
+  <a href="https://www.facebook.com/share/1AmU9NSbuu/" class="facebook" target="_blank">
+    <i class="fa-brands fa-facebook-f"></i>
+  </a>
+
+  <a href="https://www.instagram.com/ajaysingh17242002?igsh=NDdzd3Axd3VnZjY5" class="instagram" target="_blank">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+  <a href="https://x.com/AjaySingh151152" class="twitter" target="_blank">
+    <i class="fa-brands fa-x-twitter"></i>
+  </a>
+
+  <a href="https://www.linkedin.com/in/ajay-singh-408b1326a?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="linkedin" target="_blank">
+    <i class="fa-brands fa-linkedin-in"></i>
+  </a>
+</div>
+
+<div id="info6">
+  <p id="pb">© 2026 Ajay Singh. All rights reserved.</p>
+</div>
+  </div>
+
+<script>
+const btn = document.getElementById("menu-btn");
+const nav = document.querySelector("nav");
+const icon = document.getElementById("menu-icon");
+
+/* toggle menu */
+btn.addEventListener("click", ()=>{
+  nav.classList.toggle("show");
+
+  /* ⭐ toggle icon */
+  icon.classList.toggle("fa-bars");
+  icon.classList.toggle("fa-xmark");
+});
+
+document.querySelectorAll("nav a").forEach(link=>{
+  link.addEventListener("click", ()=>{
+    nav.classList.remove("show");
+
+    icon.classList.remove("fa-xmark");
+    icon.classList.add("fa-bars");
+  });
+});
+
+document.addEventListener("click", (e)=>{
+  if(!nav.contains(e.target) && !btn.contains(e.target)){
+    nav.classList.remove("show");
+
+    icon.classList.remove("fa-xmark");
+    icon.classList.add("fa-bars");
+  }
+});
+</script>   
+</body>
+</html>
