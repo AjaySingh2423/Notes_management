@@ -12,7 +12,7 @@ router.get("/note",restrictToLoggedInUserOnly, handleNote );
 router.post("/post",restrictToLoggedInUserOnly, handlePost );        
 router.get("/login", handleLoginOpen);
 router.get("/logout",handleLogout);
-router.get("/delete/:id",handleDelete);
+router.get("/delete/:id",restrictToLoggedInUserOnly,handleDelete);
 router.get("/edit/:id",restrictToLoggedInUserOnly,handleEdit);
 router.post("/update/:id",restrictToLoggedInUserOnly,handleUpdate);
 router.get("/view/:id",restrictToLoggedInUserOnly,handleView);
