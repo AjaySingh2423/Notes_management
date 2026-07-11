@@ -20,6 +20,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended:false}));  //It is a middleware
 app.use(cookieParser());
 
+app.get("/", (req, res) => {
+    return res.redirect("/login");
+});
 
 const userRouter = require("./routes/user");
 app.use(userRouter);
