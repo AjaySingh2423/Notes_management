@@ -10,7 +10,7 @@ router.post("/login1",handleLogin);
 router.get("/home",restrictToLoggedInUserOnly, handleHome );
 router.get("/note",restrictToLoggedInUserOnly, handleNote );
 router.post("/post",restrictToLoggedInUserOnly, handlePost );        
-router.get("/login", handleLoginOpen);
+router.get("/", handleLoginOpen);
 router.get("/logout",handleLogout);
 router.get("/delete/:id",handleDelete);
 router.get("/edit/:id",restrictToLoggedInUserOnly,handleEdit);
